@@ -1,0 +1,95 @@
+---
+- name: Настройка всех узлов
+  hosts: all
+  become: yes
+  tasks:
+    - name: Обновить кэш apt
+      apt:
+        update_cache: yes
+
+    - name: Установить базовые пакеты
+      apt:
+        name:
+          - lvm2
+          - gfs2-utils
+          - open-iscsi
+        state: present
+
+- name: Настройка iSCSI Target
+  hosts: iscsi_target
+  become: yes
+  tasks:
+    - name: Установить targetcli
+      apt:
+        name: targetcli-fb
+        state: present
+
+    - name: Создать блочное устройство iSCSI
+      shell: |
+        targetcli backstores/fileio create shared /dev/vdb 5G || true
+        targetcli iscsi/ create iqn.2026-06.local.gfs2:storage || true
+        targetcli iscsi/iqn.2026-06.local.gfs2:storage/tpg1/luns create /backstores/fileio/shared || true
+        targetcli iscsi/iqn.2026-06.local.gfs2:storage/tpg1/ set attribute authentication=0 || true
+        targetcli iscsi/iqn.2026-06.local.gfs2:storage/tpg1/ set attribute generate_node_acls=1 || true
+        targetcli iscsi/iqn.2026-06.local.gfs2:storage/tpg1/ set attribute demo_mode_write_protect=0 || true
+        targetcli saveconfig || true
+
+- name: Настройка GFS2 узлов
+  hosts: gfs2_nodes
+  become: yes
+  tasks:
+    - name: Настроить и подключить iSCSI
+      shell: |
+        echo "InitiatorName=iqn.2026-06.local.gfs2:initiator" > /etc/iscsi/initiatorname.iscsi
+        systemctl restart iscsid
+        sleep 2
+        iscsiadm -m discovery -t st -p 192.168.124.200 || true
+        iscsiadm -m node --targetname iqn.2026-06.local.gfs2:storage -p 192.168.124.200 --login || true
+
+    - name: Создать LVM PV (только на node-1)
+      shell: pvcreate /dev/sda || true
+      when: inventory_hostname == "gfs2-node-1"
+
+    - name: Создать LVM VG (только на node-1)
+      shell: vgcreate vg_gfs2 /dev/sda || true
+      when: inventory_hostname == "gfs2-node-1"
+
+    - name: Создать LVM LV (только на node-1)
+      shell: lvcreate -L 4G -n lv_gfs2 vg_gfs2 || true
+      when: inventory_hostname == "gfs2-node-1"
+
+    - name: Сканировать LVM на всех узлах
+      shell: |
+        pvscan --cache || true
+        vgscan --cache || true
+        lvscan || true
+
+    - name: Активировать VG
+      shell: vgchange -ay vg_gfs2 || true
+
+    - name: Создать GFS2 (только на node-1)
+      shell: mkfs.gfs2 -p lock_dlm -t gfs2:shared -j 3 /dev/vg_gfs2/lv_gfs2 || true
+      when: inventory_hostname == "gfs2-node-1"
+
+    - name: Создать точку монтирования
+      file:
+        path: /mnt/gfs2
+        state: directory
+
+    - name: Смонтировать GFS2
+      mount:
+        path: /mnt/gfs2
+        src: /dev/vg_gfs2/lv_gfs2
+        fstype: gfs2
+        opts: defaults,noatime
+        state: mounted
+      ignore_errors: yes
+
+    - name: Проверить монтирование
+      shell: df -h /mnt/gfs2
+      register: df_result
+      changed_when: false
+
+    - name: Показать результат
+      debug:
+        var: df_result.stdout_lines

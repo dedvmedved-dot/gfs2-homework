@@ -1,0 +1,69 @@
+digraph GFS2_Cluster {
+    rankdir=TB;
+    splines=ortho;
+    nodesep=0.8;
+    ranksep=1.0;
+    
+    node [shape=box, style="rounded,filled", fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=8];
+    
+    subgraph cluster_host {
+        label="KVM/libvirt (WSL2)\nСеть: 192.168.124.0/24";
+        style="rounded,dashed";
+        color="#888888";
+        fontsize=11;
+        
+        iscsi [label="iscsi-target\n192.168.124.186\n/dev/vdb (5GB)\niSCSI Target", fillcolor="#FFE4B5", width=2.5];
+        
+        node1 [label="gfs2-node-1\n192.168.124.189\nLVM + GFS2", fillcolor="#B0E0E6", width=2];
+        node2 [label="gfs2-node-2\n192.168.124.122\nGFS2 client", fillcolor="#B0E0E6", width=2];
+        node3 [label="gfs2-node-3\n192.168.124.223\nGFS2 client", fillcolor="#B0E0E6", width=2];
+        
+        shared [label="GFS2 Storage\n/dev/vg_gfs2/lv_gfs2\n4GB | lock_nolock", fillcolor="#DDA0DD", shape=folder, width=2.5];
+    }
+    
+    iscsi -> shared [
+        label="iSCSI LUN",
+        style=bold,
+        color="#CC0000",
+        penwidth=2
+    ];
+    
+    node1 -> iscsi [
+        label="iSCSI",
+        style=dashed,
+        color="#0066CC",
+        arrowhead=normal
+    ];
+    node2 -> iscsi [
+        label="iSCSI",
+        style=dashed,
+        color="#0066CC",
+        arrowhead=normal
+    ];
+    node3 -> iscsi [
+        label="iSCSI",
+        style=dashed,
+        color="#0066CC",
+        arrowhead=normal
+    ];
+    
+    node1 -> shared [
+        label="GFS2 mount",
+        color="#009900",
+        penwidth=1.5
+    ];
+    node2 -> shared [
+        label="GFS2 mount",
+        color="#009900",
+        penwidth=1.5
+    ];
+    node3 -> shared [
+        label="GFS2 mount",
+        color="#009900",
+        penwidth=1.5
+    ];
+    
+    { rank=same; node1; node2; node3; }
+    { rank=same; iscsi; shared; }
+}

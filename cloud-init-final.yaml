@@ -1,0 +1,19 @@
+#cloud-config
+password: ubuntu
+chpasswd:
+  expire: false
+users:
+  - name: ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    lock_passwd: false
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDVWxAkP4MdCQSMbBTU63Jzav6tMMLPJ4or7eePY23T4aMTUA/zB1G08litkiSeG5KX8QzItl002/1LyDh7V3oQbY+evFWtUJGcVpQwBedKXGF5SCIlxMpvXEaF3CTW9VVNLy/mqzg5JKNXzpX1ETrGNXABW885KqB6Rf10bFebxkGdmnejv5TdcxcytcYBZs31nvOvt0y+xzQjKoLEJzwwUopuNWodLjQDUeHgy6p3nPiK/3thpFhgTEisBmfhUaAyeN7m4y+8GFwvE5fFmjjnvS/5vSC0FQvpkNVvuBOXeWEt/CpV6IjI9+s7NdYUWDwGs7VfAC3y2UCww5oxBYD4pgF8HS23x7HgWhg9JuiMeDY/z7loHt7fWS3fdx+zweSHYSNMemNhfoyc5n0GrGHc44c/bkTnr6rk4jqW9joAuGfBec9iTXVHwdAnFbRpacxqJaZD9xSe4m3Wk8NZEbsN8yFtuo8kHRnapwbBevk/zcQtJihm8GGjdcxOQHKPXuU= ase@DESKTOP-9N5QTVO
+ssh_pwauth: true
+disable_root: false
+bootcmd:
+  - ip link set ens3 up
+  - dhclient ens3
+runcmd:
+  - ip link set ens3 up
+  - dhclient ens3
