@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="687pt" height="379pt" viewBox="0.00 0.00 687.00 379.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 374.8)">
+<title>NetworkArchitecture</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-374.8 682.79,-374.8 682.79,4 -4,4"/>
+<!-- virbr1 -->
+<g id="node1" class="node">
+<title>virbr1</title>
+<polygon fill="#ffd700" stroke="black" points="345.93,-267.2 212.07,-267.2 212.07,-263.2 208.07,-263.2 208.07,-259.2 212.07,-259.2 212.07,-231.2 208.07,-231.2 208.07,-227.2 212.07,-227.2 212.07,-223.2 345.93,-223.2 345.93,-267.2"/>
+<polyline fill="none" stroke="black" points="212.07,-263.2 216.07,-263.2 216.07,-259.2 212.07,-259.2"/>
+<polyline fill="none" stroke="black" points="212.07,-231.2 216.07,-231.2 216.07,-227.2 212.07,-227.2"/>
+<text xml:space="preserve" text-anchor="middle" x="279" y="-254.2" font-family="Arial" font-size="10.00">virbr1 (NAT мост)</text>
+<text xml:space="preserve" text-anchor="middle" x="279" y="-242.2" font-family="Arial" font-size="10.00">192.168.124.1/24</text>
+<text xml:space="preserve" text-anchor="middle" x="279" y="-230.2" font-family="Arial" font-size="10.00">DHCP: 192.168.124.2-254</text>
+</g>
+<!-- iscsi -->
+<g id="node3" class="node">
+<title>iscsi</title>
+<path fill="#ffe4b5" stroke="black" d="M429.54,-155.6C429.54,-155.6 362.46,-155.6 362.46,-155.6 356.46,-155.6 350.46,-149.6 350.46,-143.6 350.46,-143.6 350.46,-123.6 350.46,-123.6 350.46,-117.6 356.46,-111.6 362.46,-111.6 362.46,-111.6 429.54,-111.6 429.54,-111.6 435.54,-111.6 441.54,-117.6 441.54,-123.6 441.54,-123.6 441.54,-143.6 441.54,-143.6 441.54,-149.6 435.54,-155.6 429.54,-155.6"/>
+<text xml:space="preserve" text-anchor="middle" x="396" y="-142.6" font-family="Arial" font-size="10.00">iscsi-target</text>
+<text xml:space="preserve" text-anchor="middle" x="396" y="-130.6" font-family="Arial" font-size="10.00">192.168.124.186</text>
+<text xml:space="preserve" text-anchor="middle" x="396" y="-118.6" font-family="Arial" font-size="10.00">vnet72</text>
+</g>
+<!-- virbr1&#45;&gt;iscsi -->
+<g id="edge2" class="edge">
+<title>virbr1-&gt;iscsi</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M338.77,-222.85C338.77,-192.23 338.77,-141 338.77,-141 338.77,-141 339.9,-141 339.9,-141"/>
+<polygon fill="black" stroke="black" points="338.57,-144.5 348.57,-141 338.57,-137.5 338.57,-144.5"/>
+<text xml:space="preserve" text-anchor="middle" x="359.89" y="-187" font-family="Arial" font-size="8.00">NAT + DHCP</text>
+</g>
+<!-- node1 -->
+<g id="node4" class="node">
+<title>node1</title>
+<path fill="#b0e0e6" stroke="black" d="M130.54,-44C130.54,-44 63.46,-44 63.46,-44 57.46,-44 51.46,-38 51.46,-32 51.46,-32 51.46,-12 51.46,-12 51.46,-6 57.46,0 63.46,0 63.46,0 130.54,0 130.54,0 136.54,0 142.54,-6 142.54,-12 142.54,-12 142.54,-32 142.54,-32 142.54,-38 136.54,-44 130.54,-44"/>
+<text xml:space="preserve" text-anchor="middle" x="97" y="-31" font-family="Arial" font-size="10.00">gfs2-node-1</text>
+<text xml:space="preserve" text-anchor="middle" x="97" y="-19" font-family="Arial" font-size="10.00">192.168.124.189</text>
+<text xml:space="preserve" text-anchor="middle" x="97" y="-7" font-family="Arial" font-size="10.00">vnet70</text>
+</g>
+<!-- virbr1&#45;&gt;node1 -->
+<g id="edge3" class="edge">
+<title>virbr1-&gt;node1</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M211.69,-245C154.57,-245 81.82,-245 81.82,-245 81.82,-245 81.82,-55.71 81.82,-55.71"/>
+<polygon fill="black" stroke="black" points="85.32,-55.71 81.82,-45.71 78.32,-55.71 85.32,-55.71"/>
+<text xml:space="preserve" text-anchor="middle" x="23.89" y="-131.2" font-family="Arial" font-size="8.00">NAT + DHCP</text>
+</g>
+<!-- node2 -->
+<g id="node5" class="node">
+<title>node2</title>
+<path fill="#b0e0e6" stroke="black" d="M621.54,-44C621.54,-44 554.46,-44 554.46,-44 548.46,-44 542.46,-38 542.46,-32 542.46,-32 542.46,-12 542.46,-12 542.46,-6 548.46,0 554.46,0 554.46,0 621.54,0 621.54,0 627.54,0 633.54,-6 633.54,-12 633.54,-12 633.54,-32 633.54,-32 633.54,-38 627.54,-44 621.54,-44"/>
+<text xml:space="preserve" text-anchor="middle" x="588" y="-31" font-family="Arial" font-size="10.00">gfs2-node-2</text>
+<text xml:space="preserve" text-anchor="middle" x="588" y="-19" font-family="Arial" font-size="10.00">192.168.124.122</text>
+<text xml:space="preserve" text-anchor="middle" x="588" y="-7" font-family="Arial" font-size="10.00">vnet69</text>
+</g>
+<!-- virbr1&#45;&gt;node2 -->
+<g id="edge4" class="edge">
+<title>virbr1-&gt;node2</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M346.05,-245C436.93,-245 588,-245 588,-245 588,-245 588,-55.71 588,-55.71"/>
+<polygon fill="black" stroke="black" points="591.5,-55.71 588,-45.71 584.5,-55.71 591.5,-55.71"/>
+<text xml:space="preserve" text-anchor="middle" x="654.89" y="-131.2" font-family="Arial" font-size="8.00">NAT + DHCP</text>
+</g>
+<!-- node3 -->
+<g id="node6" class="node">
+<title>node3</title>
+<path fill="#b0e0e6" stroke="black" d="M403.54,-44C403.54,-44 336.46,-44 336.46,-44 330.46,-44 324.46,-38 324.46,-32 324.46,-32 324.46,-12 324.46,-12 324.46,-6 330.46,0 336.46,0 336.46,0 403.54,0 403.54,0 409.54,0 415.54,-6 415.54,-12 415.54,-12 415.54,-32 415.54,-32 415.54,-38 409.54,-44 403.54,-44"/>
+<text xml:space="preserve" text-anchor="middle" x="370" y="-31" font-family="Arial" font-size="10.00">gfs2-node-3</text>
+<text xml:space="preserve" text-anchor="middle" x="370" y="-19" font-family="Arial" font-size="10.00">192.168.124.223</text>
+<text xml:space="preserve" text-anchor="middle" x="370" y="-7" font-family="Arial" font-size="10.00">vnet71</text>
+</g>
+<!-- virbr1&#45;&gt;node3 -->
+<g id="edge5" class="edge">
+<title>virbr1-&gt;node3</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M331.62,-222.98C331.62,-222.98 331.62,-55.97 331.62,-55.97"/>
+<polygon fill="black" stroke="black" points="335.12,-55.97 331.62,-45.97 328.12,-55.97 335.12,-55.97"/>
+<text xml:space="preserve" text-anchor="middle" x="215.89" y="-131.2" font-family="Arial" font-size="8.00">NAT + DHCP</text>
+</g>
+<!-- dnsmasq -->
+<g id="node2" class="node">
+<title>dnsmasq</title>
+<polygon fill="#ffd700" stroke="black" points="317.42,-370.8 240.58,-370.8 240.58,-366.8 236.58,-366.8 236.58,-362.8 240.58,-362.8 240.58,-342.8 236.58,-342.8 236.58,-338.8 240.58,-338.8 240.58,-334.8 317.42,-334.8 317.42,-370.8"/>
+<polyline fill="none" stroke="black" points="240.58,-366.8 244.58,-366.8 244.58,-362.8 240.58,-362.8"/>
+<polyline fill="none" stroke="black" points="240.58,-342.8 244.58,-342.8 244.58,-338.8 240.58,-338.8"/>
+<text xml:space="preserve" text-anchor="middle" x="279" y="-355.8" font-family="Arial" font-size="10.00">dnsmasq</text>
+<text xml:space="preserve" text-anchor="middle" x="279" y="-343.8" font-family="Arial" font-size="10.00">DHCP + DNS</text>
+</g>
+<!-- dnsmasq&#45;&gt;virbr1 -->
+<g id="edge1" class="edge">
+<title>dnsmasq-&gt;virbr1</title>
+<path fill="none" stroke="black" d="M279,-334.55C279,-334.55 279,-279.17 279,-279.17"/>
+<polygon fill="black" stroke="black" points="282.5,-279.17 279,-269.17 275.5,-279.17 282.5,-279.17"/>
+<text xml:space="preserve" text-anchor="middle" x="299" y="-298.6" font-family="Arial" font-size="8.00">управляет</text>
+</g>
+<!-- iscsi&#45;&gt;node1 -->
+<g id="edge6" class="edge">
+<title>iscsi-&gt;node1</title>
+<path fill="none" stroke="#cc0000" stroke-width="2" d="M350.08,-126C269.76,-126 112.18,-126 112.18,-126 112.18,-126 112.18,-55.82 112.18,-55.82"/>
+<polygon fill="#cc0000" stroke="#cc0000" stroke-width="2" points="115.68,-57.34 112.18,-47.34 108.68,-57.34 115.68,-57.34"/>
+<text xml:space="preserve" text-anchor="middle" x="327.35" y="-75.4" font-family="Arial" font-size="8.00">iSCSI :3260</text>
+</g>
+<!-- iscsi&#45;&gt;node2 -->
+<g id="edge7" class="edge">
+<title>iscsi-&gt;node2</title>
+<path fill="none" stroke="#cc0000" stroke-width="2" d="M428.54,-111.28C428.54,-78.72 428.54,-22 428.54,-22 428.54,-22 530.79,-22 530.79,-22"/>
+<polygon fill="#cc0000" stroke="#cc0000" stroke-width="2" points="529.28,-25.5 539.28,-22 529.28,-18.5 529.28,-25.5"/>
+<text xml:space="preserve" text-anchor="middle" x="567.35" y="-75.4" font-family="Arial" font-size="8.00">iSCSI :3260</text>
+</g>
+<!-- iscsi&#45;&gt;node3 -->
+<g id="edge8" class="edge">
+<title>iscsi-&gt;node3</title>
+<path fill="none" stroke="#cc0000" stroke-width="2" d="M383,-111.28C383,-111.28 383,-55.79 383,-55.79"/>
+<polygon fill="#cc0000" stroke="#cc0000" stroke-width="2" points="386.5,-57.3 383,-47.3 379.5,-57.3 386.5,-57.3"/>
+<text xml:space="preserve" text-anchor="middle" x="447.35" y="-75.4" font-family="Arial" font-size="8.00">iSCSI :3260</text>
+</g>
+</g>
+</svg>

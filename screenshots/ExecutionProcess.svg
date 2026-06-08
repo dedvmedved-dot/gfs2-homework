@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="122pt" height="762pt" viewBox="0.00 0.00 122.00 762.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 757.8)">
+<title>ExecutionProcess</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-757.8 117.52,-757.8 117.52,4 -4,4"/>
+<!-- step1 -->
+<g id="node1" class="node">
+<title>step1</title>
+<path fill="#e8e8e8" stroke="black" d="M101.52,-753.8C101.52,-753.8 12,-753.8 12,-753.8 6,-753.8 0,-747.8 0,-741.8 0,-741.8 0,-703.8 0,-703.8 0,-697.8 6,-691.8 12,-691.8 12,-691.8 101.52,-691.8 101.52,-691.8 107.52,-691.8 113.52,-697.8 113.52,-703.8 113.52,-703.8 113.52,-741.8 113.52,-741.8 113.52,-747.8 107.52,-753.8 101.52,-753.8"/>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-741.7" font-family="Arial" font-size="9.00">Шаг 1</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-730.9" font-family="Arial" font-size="9.00">Подготовка окружения</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-720.1" font-family="Arial" font-size="9.00">- KVM/libvirt</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-709.3" font-family="Arial" font-size="9.00">- Terraform</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-698.5" font-family="Arial" font-size="9.00">- Ansible</text>
+</g>
+<!-- step2 -->
+<g id="node2" class="node">
+<title>step2</title>
+<path fill="#e8e8e8" stroke="black" d="M92.52,-648.8C92.52,-648.8 21,-648.8 21,-648.8 15,-648.8 9,-642.8 9,-636.8 9,-636.8 9,-598.8 9,-598.8 9,-592.8 15,-586.8 21,-586.8 21,-586.8 92.52,-586.8 92.52,-586.8 98.52,-586.8 104.52,-592.8 104.52,-598.8 104.52,-598.8 104.52,-636.8 104.52,-636.8 104.52,-642.8 98.52,-648.8 92.52,-648.8"/>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-636.7" font-family="Arial" font-size="9.00">Шаг 2</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-625.9" font-family="Arial" font-size="9.00">Terraform Apply</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-615.1" font-family="Arial" font-size="9.00">- Сеть gfs2-network</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-604.3" font-family="Arial" font-size="9.00">- 4 ВМ с дисками</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-593.5" font-family="Arial" font-size="9.00">- Cloud-init ISO</text>
+</g>
+<!-- step1&#45;&gt;step2 -->
+<g id="edge1" class="edge">
+<title>step1-&gt;step2</title>
+<path fill="none" stroke="black" d="M56.76,-691.58C56.76,-691.58 56.76,-660.59 56.76,-660.59"/>
+<polygon fill="black" stroke="black" points="60.26,-660.59 56.76,-650.59 53.26,-660.59 60.26,-660.59"/>
+</g>
+<!-- step3 -->
+<g id="node3" class="node">
+<title>step3</title>
+<path fill="#e8e8e8" stroke="black" d="M86.52,-543.8C86.52,-543.8 27,-543.8 27,-543.8 21,-543.8 15,-537.8 15,-531.8 15,-531.8 15,-504.6 15,-504.6 15,-498.6 21,-492.6 27,-492.6 27,-492.6 86.52,-492.6 86.52,-492.6 92.52,-492.6 98.52,-498.6 98.52,-504.6 98.52,-504.6 98.52,-531.8 98.52,-531.8 98.52,-537.8 92.52,-543.8 86.52,-543.8"/>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-531.7" font-family="Arial" font-size="9.00">Шаг 3</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-520.9" font-family="Arial" font-size="9.00">Настройка сети</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-510.1" font-family="Arial" font-size="9.00">- DHCP leases</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-499.3" font-family="Arial" font-size="9.00">- SSH доступ</text>
+</g>
+<!-- step2&#45;&gt;step3 -->
+<g id="edge2" class="edge">
+<title>step2-&gt;step3</title>
+<path fill="none" stroke="black" d="M56.76,-586.56C56.76,-586.56 56.76,-555.5 56.76,-555.5"/>
+<polygon fill="black" stroke="black" points="60.26,-555.5 56.76,-545.5 53.26,-555.5 60.26,-555.5"/>
+</g>
+<!-- step4 -->
+<g id="node4" class="node">
+<title>step4</title>
+<path fill="#e8e8e8" stroke="black" d="M89.02,-449.6C89.02,-449.6 24.5,-449.6 24.5,-449.6 18.5,-449.6 12.5,-443.6 12.5,-437.6 12.5,-437.6 12.5,-410.4 12.5,-410.4 12.5,-404.4 18.5,-398.4 24.5,-398.4 24.5,-398.4 89.02,-398.4 89.02,-398.4 95.02,-398.4 101.02,-404.4 101.02,-410.4 101.02,-410.4 101.02,-437.6 101.02,-437.6 101.02,-443.6 95.02,-449.6 89.02,-449.6"/>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-437.5" font-family="Arial" font-size="9.00">Шаг 4</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-426.7" font-family="Arial" font-size="9.00">iSCSI Target</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-415.9" font-family="Arial" font-size="9.00">- tgt установка</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-405.1" font-family="Arial" font-size="9.00">- LUN на /dev/vdb</text>
+</g>
+<!-- step3&#45;&gt;step4 -->
+<g id="edge3" class="edge">
+<title>step3-&gt;step4</title>
+<path fill="none" stroke="black" d="M56.76,-492.21C56.76,-492.21 56.76,-461.42 56.76,-461.42"/>
+<polygon fill="black" stroke="black" points="60.26,-461.42 56.76,-451.42 53.26,-461.42 60.26,-461.42"/>
+</g>
+<!-- step5 -->
+<g id="node5" class="node">
+<title>step5</title>
+<path fill="#e8e8e8" stroke="black" d="M82.52,-355.4C82.52,-355.4 31,-355.4 31,-355.4 25,-355.4 19,-349.4 19,-343.4 19,-343.4 19,-305.4 19,-305.4 19,-299.4 25,-293.4 31,-293.4 31,-293.4 82.52,-293.4 82.52,-293.4 88.52,-293.4 94.52,-299.4 94.52,-305.4 94.52,-305.4 94.52,-343.4 94.52,-343.4 94.52,-349.4 88.52,-355.4 82.52,-355.4"/>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-343.3" font-family="Arial" font-size="9.00">Шаг 5</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-332.5" font-family="Arial" font-size="9.00">iSCSI Initiators</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-321.7" font-family="Arial" font-size="9.00">- discovery</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-310.9" font-family="Arial" font-size="9.00">- login</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-300.1" font-family="Arial" font-size="9.00">- /dev/sda</text>
+</g>
+<!-- step4&#45;&gt;step5 -->
+<g id="edge4" class="edge">
+<title>step4-&gt;step5</title>
+<path fill="none" stroke="black" d="M56.76,-398.09C56.76,-398.09 56.76,-367.38 56.76,-367.38"/>
+<polygon fill="black" stroke="black" points="60.26,-367.38 56.76,-357.38 53.26,-367.38 60.26,-367.38"/>
+</g>
+<!-- step6 -->
+<g id="node6" class="node">
+<title>step6</title>
+<path fill="#e8e8e8" stroke="black" d="M72.77,-250.4C72.77,-250.4 40.75,-250.4 40.75,-250.4 34.75,-250.4 28.75,-244.4 28.75,-238.4 28.75,-238.4 28.75,-200.4 28.75,-200.4 28.75,-194.4 34.75,-188.4 40.75,-188.4 40.75,-188.4 72.77,-188.4 72.77,-188.4 78.77,-188.4 84.77,-194.4 84.77,-200.4 84.77,-200.4 84.77,-238.4 84.77,-238.4 84.77,-244.4 78.77,-250.4 72.77,-250.4"/>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-238.3" font-family="Arial" font-size="9.00">Шаг 6</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-227.5" font-family="Arial" font-size="9.00">LVM</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-216.7" font-family="Arial" font-size="9.00">- pvcreate</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-205.9" font-family="Arial" font-size="9.00">- vgcreate</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-195.1" font-family="Arial" font-size="9.00">- lvcreate</text>
+</g>
+<!-- step5&#45;&gt;step6 -->
+<g id="edge5" class="edge">
+<title>step5-&gt;step6</title>
+<path fill="none" stroke="black" d="M56.76,-293.18C56.76,-293.18 56.76,-262.19 56.76,-262.19"/>
+<polygon fill="black" stroke="black" points="60.26,-262.19 56.76,-252.19 53.26,-262.19 60.26,-262.19"/>
+</g>
+<!-- step7 -->
+<g id="node7" class="node">
+<title>step7</title>
+<path fill="#e8e8e8" stroke="black" d="M74.76,-145.4C74.76,-145.4 38.76,-145.4 38.76,-145.4 32.76,-145.4 26.76,-139.4 26.76,-133.4 26.76,-133.4 26.76,-106.2 26.76,-106.2 26.76,-100.2 32.76,-94.2 38.76,-94.2 38.76,-94.2 74.76,-94.2 74.76,-94.2 80.76,-94.2 86.76,-100.2 86.76,-106.2 86.76,-106.2 86.76,-133.4 86.76,-133.4 86.76,-139.4 80.76,-145.4 74.76,-145.4"/>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-133.3" font-family="Arial" font-size="9.00">Шаг 7</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-122.5" font-family="Arial" font-size="9.00">GFS2</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-111.7" font-family="Arial" font-size="9.00">- mkfs.gfs2</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-100.9" font-family="Arial" font-size="9.00">- mount</text>
+</g>
+<!-- step6&#45;&gt;step7 -->
+<g id="edge6" class="edge">
+<title>step6-&gt;step7</title>
+<path fill="none" stroke="black" d="M56.76,-188.16C56.76,-188.16 56.76,-157.1 56.76,-157.1"/>
+<polygon fill="black" stroke="black" points="60.26,-157.1 56.76,-147.1 53.26,-157.1 60.26,-157.1"/>
+</g>
+<!-- step8 -->
+<g id="node8" class="node">
+<title>step8</title>
+<path fill="#90ee90" stroke="black" d="M86.76,-51.2C86.76,-51.2 26.75,-51.2 26.75,-51.2 20.75,-51.2 14.75,-45.2 14.75,-39.2 14.75,-39.2 14.75,-12 14.75,-12 14.75,-6 20.75,0 26.75,0 26.75,0 86.76,0 86.76,0 92.76,0 98.76,-6 98.76,-12 98.76,-12 98.76,-39.2 98.76,-39.2 98.76,-45.2 92.76,-51.2 86.76,-51.2"/>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-39.1" font-family="Arial" font-size="9.00">Шаг 8</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-28.3" font-family="Arial" font-size="9.00">Тестирование</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-17.5" font-family="Arial" font-size="9.00">- df -h</text>
+<text xml:space="preserve" text-anchor="middle" x="56.76" y="-6.7" font-family="Arial" font-size="9.00">- запись/чтение</text>
+</g>
+<!-- step7&#45;&gt;step8 -->
+<g id="edge7" class="edge">
+<title>step7-&gt;step8</title>
+<path fill="none" stroke="black" d="M56.76,-93.81C56.76,-93.81 56.76,-63.02 56.76,-63.02"/>
+<polygon fill="black" stroke="black" points="60.26,-63.02 56.76,-53.02 53.26,-63.02 60.26,-63.02"/>
+</g>
+</g>
+</svg>

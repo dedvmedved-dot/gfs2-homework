@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="602pt" height="690pt" viewBox="0.00 0.00 602.00 690.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 686)">
+<title>PhysicalArchitecture</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-686 598.03,-686 598.03,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_windows</title>
+<path fill="none" stroke="#666666" stroke-dasharray="5,2" d="M20,-8C20,-8 574.03,-8 574.03,-8 580.03,-8 586.03,-14 586.03,-20 586.03,-20 586.03,-662 586.03,-662 586.03,-668 580.03,-674 574.03,-674 574.03,-674 20,-674 20,-674 14,-674 8,-668 8,-662 8,-662 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="297.01" y="-660.1" font-family="Times,serif" font-size="11.00">Windows 11 Pro</text>
+<text xml:space="preserve" text-anchor="middle" x="297.01" y="-646.9" font-family="Times,serif" font-size="11.00">(Хост-система)</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_wsl2</title>
+<path fill="none" stroke="#888888" stroke-dasharray="5,2" d="M28,-16C28,-16 566.03,-16 566.03,-16 572.03,-16 578.03,-22 578.03,-28 578.03,-28 578.03,-620 578.03,-620 578.03,-626 572.03,-632 566.03,-632 566.03,-632 28,-632 28,-632 22,-632 16,-626 16,-620 16,-620 16,-28 16,-28 16,-22 22,-16 28,-16"/>
+<text xml:space="preserve" text-anchor="middle" x="297.01" y="-618.1" font-family="Times,serif" font-size="11.00">WSL2 (Ubuntu 24.04)</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_kvm</title>
+<path fill="none" stroke="#aaaaaa" stroke-dasharray="5,2" d="M222.79,-148C222.79,-148 558.03,-148 558.03,-148 564.03,-148 570.03,-154 570.03,-160 570.03,-160 570.03,-535 570.03,-535 570.03,-541 564.03,-547 558.03,-547 558.03,-547 222.79,-547 222.79,-547 216.79,-547 210.79,-541 210.79,-535 210.79,-535 210.79,-160 210.79,-160 210.79,-154 216.79,-148 222.79,-148"/>
+<text xml:space="preserve" text-anchor="middle" x="390.41" y="-533.1" font-family="Times,serif" font-size="11.00">KVM/libvirt</text>
+</g>
+<!-- iscsi -->
+<g id="node1" class="node">
+<title>iscsi</title>
+<path fill="#ffe4b5" stroke="black" d="M310.41,-314C310.41,-314 230.79,-314 230.79,-314 224.79,-314 218.79,-308 218.79,-302 218.79,-302 218.79,-270 218.79,-270 218.79,-264 224.79,-258 230.79,-258 230.79,-258 310.41,-258 310.41,-258 316.41,-258 322.41,-264 322.41,-270 322.41,-270 322.41,-302 322.41,-302 322.41,-308 316.41,-314 310.41,-314"/>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-301" font-family="Arial" font-size="10.00">iscsi-target</text>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-289" font-family="Arial" font-size="10.00">192.168.124.186</text>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-277" font-family="Arial" font-size="10.00">1 vCPU | 1GB RAM</text>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-265" font-family="Arial" font-size="10.00">/dev/vdb 5GB</text>
+</g>
+<!-- shared -->
+<g id="node5" class="node">
+<title>shared</title>
+<polygon fill="#dda0dd" stroke="black" points="562.03,-372 559.03,-376 538.03,-376 535.03,-372 447.08,-372 447.08,-328 562.03,-328 562.03,-372"/>
+<text xml:space="preserve" text-anchor="middle" x="504.56" y="-359" font-family="Arial" font-size="10.00">GFS2 Shared Storage</text>
+<text xml:space="preserve" text-anchor="middle" x="504.56" y="-347" font-family="Arial" font-size="10.00">/dev/vg_gfs2/lv_gfs2</text>
+<text xml:space="preserve" text-anchor="middle" x="504.56" y="-335" font-family="Arial" font-size="10.00">4GB | lock_nolock</text>
+</g>
+<!-- iscsi&#45;&gt;shared -->
+<g id="edge9" class="edge">
+<title>iscsi-&gt;shared</title>
+<path fill="none" stroke="#cc0000" stroke-width="2" d="M253.03,-314.33C253.03,-328.5 253.03,-342.67 253.03,-342.67 253.03,-342.67 435.34,-342.67 435.34,-342.67"/>
+<polygon fill="#cc0000" stroke="#cc0000" stroke-width="2" points="433.82,-346.17 443.82,-342.67 433.82,-339.17 433.82,-346.17"/>
+<text xml:space="preserve" text-anchor="middle" x="384.75" y="-314.4" font-family="Arial" font-size="8.00">iSCSI LUN</text>
+</g>
+<!-- node1 -->
+<g id="node2" class="node">
+<title>node1</title>
+<path fill="#b0e0e6" stroke="black" d="M310.41,-200C310.41,-200 230.79,-200 230.79,-200 224.79,-200 218.79,-194 218.79,-188 218.79,-188 218.79,-168 218.79,-168 218.79,-162 224.79,-156 230.79,-156 230.79,-156 310.41,-156 310.41,-156 316.41,-156 322.41,-162 322.41,-168 322.41,-168 322.41,-188 322.41,-188 322.41,-194 316.41,-200 310.41,-200"/>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-187" font-family="Arial" font-size="10.00">gfs2-node-1</text>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-175" font-family="Arial" font-size="10.00">192.168.124.189</text>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-163" font-family="Arial" font-size="10.00">1 vCPU | 1GB RAM</text>
+</g>
+<!-- node1&#45;&gt;shared -->
+<g id="edge10" class="edge">
+<title>node1-&gt;shared</title>
+<path fill="none" stroke="#0066cc" d="M322.63,-178C391.69,-178 505.03,-178 505.03,-178 505.03,-178 505.03,-316 505.03,-316"/>
+<polygon fill="#0066cc" stroke="#0066cc" points="501.53,-316 505.03,-326 508.53,-316 501.53,-316"/>
+<text xml:space="preserve" text-anchor="middle" x="384.75" y="-233.4" font-family="Arial" font-size="8.00">GFS2</text>
+</g>
+<!-- node2 -->
+<g id="node3" class="node">
+<title>node2</title>
+<path fill="#b0e0e6" stroke="black" d="M310.41,-518C310.41,-518 230.79,-518 230.79,-518 224.79,-518 218.79,-512 218.79,-506 218.79,-506 218.79,-486 218.79,-486 218.79,-480 224.79,-474 230.79,-474 230.79,-474 310.41,-474 310.41,-474 316.41,-474 322.41,-480 322.41,-486 322.41,-486 322.41,-506 322.41,-506 322.41,-512 316.41,-518 310.41,-518"/>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-505" font-family="Arial" font-size="10.00">gfs2-node-2</text>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-493" font-family="Arial" font-size="10.00">192.168.124.122</text>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-481" font-family="Arial" font-size="10.00">1 vCPU | 1GB RAM</text>
+</g>
+<!-- node2&#45;&gt;shared -->
+<g id="edge11" class="edge">
+<title>node2-&gt;shared</title>
+<path fill="none" stroke="#0066cc" d="M322.63,-496C391.69,-496 505.03,-496 505.03,-496 505.03,-496 505.03,-384.01 505.03,-384.01"/>
+<polygon fill="#0066cc" stroke="#0066cc" points="508.53,-384.01 505.03,-374.01 501.53,-384.01 508.53,-384.01"/>
+<text xml:space="preserve" text-anchor="middle" x="384.75" y="-481.4" font-family="Arial" font-size="8.00">GFS2</text>
+</g>
+<!-- node3 -->
+<g id="node4" class="node">
+<title>node3</title>
+<path fill="#b0e0e6" stroke="black" d="M310.41,-416C310.41,-416 230.79,-416 230.79,-416 224.79,-416 218.79,-410 218.79,-404 218.79,-404 218.79,-384 218.79,-384 218.79,-378 224.79,-372 230.79,-372 230.79,-372 310.41,-372 310.41,-372 316.41,-372 322.41,-378 322.41,-384 322.41,-384 322.41,-404 322.41,-404 322.41,-410 316.41,-416 310.41,-416"/>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-403" font-family="Arial" font-size="10.00">gfs2-node-3</text>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-391" font-family="Arial" font-size="10.00">192.168.124.223</text>
+<text xml:space="preserve" text-anchor="middle" x="270.6" y="-379" font-family="Arial" font-size="10.00">1 vCPU | 1GB RAM</text>
+</g>
+<!-- node3&#45;&gt;shared -->
+<g id="edge12" class="edge">
+<title>node3-&gt;shared</title>
+<path fill="none" stroke="#0066cc" d="M288.03,-371.82C288.03,-364.1 288.03,-357.33 288.03,-357.33 288.03,-357.33 435.3,-357.33 435.3,-357.33"/>
+<polygon fill="#0066cc" stroke="#0066cc" points="435.3,-360.83 445.3,-357.33 435.3,-353.83 435.3,-360.83"/>
+<text xml:space="preserve" text-anchor="middle" x="384.75" y="-391.4" font-family="Arial" font-size="8.00">GFS2</text>
+</g>
+<!-- terraform -->
+<g id="node6" class="node">
+<title>terraform</title>
+<polygon fill="#90ee90" stroke="black" points="83.89,-246 24,-246 24,-242 20,-242 20,-238 24,-238 24,-218 20,-218 20,-214 24,-214 24,-210 83.89,-210 83.89,-246"/>
+<polyline fill="none" stroke="black" points="24,-242 28,-242 28,-238 24,-238"/>
+<polyline fill="none" stroke="black" points="24,-218 28,-218 28,-214 24,-214"/>
+<text xml:space="preserve" text-anchor="middle" x="53.95" y="-231" font-family="Arial" font-size="10.00">Terraform</text>
+<text xml:space="preserve" text-anchor="middle" x="53.95" y="-219" font-family="Arial" font-size="10.00">v1.12.2</text>
+</g>
+<!-- terraform&#45;&gt;iscsi -->
+<g id="edge1" class="edge">
+<title>terraform-&gt;iscsi</title>
+<path fill="none" stroke="#009900" stroke-width="2" d="M60.03,-246.4C60.03,-260.18 60.03,-276.67 60.03,-276.67 60.03,-276.67 207.03,-276.67 207.03,-276.67"/>
+<polygon fill="#009900" stroke="#009900" stroke-width="2" points="205.52,-280.17 215.52,-276.67 205.52,-273.17 205.52,-280.17"/>
+<text xml:space="preserve" text-anchor="middle" x="151.34" y="-157.4" font-family="Arial" font-size="8.00">создаёт</text>
+</g>
+<!-- terraform&#45;&gt;node1 -->
+<g id="edge2" class="edge">
+<title>terraform-&gt;node1</title>
+<path fill="none" stroke="#009900" stroke-width="2" d="M54.03,-209.54C54.03,-192.78 54.03,-170.67 54.03,-170.67 54.03,-170.67 206.94,-170.67 206.94,-170.67"/>
+<polygon fill="#009900" stroke="#009900" stroke-width="2" points="205.42,-174.17 215.42,-170.67 205.42,-167.17 205.42,-174.17"/>
+<text xml:space="preserve" text-anchor="middle" x="151.34" y="-84.4" font-family="Arial" font-size="8.00">создаёт</text>
+</g>
+<!-- terraform&#45;&gt;node2 -->
+<g id="edge3" class="edge">
+<title>terraform-&gt;node2</title>
+<path fill="none" stroke="#009900" stroke-width="2" d="M84.25,-228C119.82,-228 174.03,-228 174.03,-228 174.03,-228 174.03,-488.67 174.03,-488.67 174.03,-488.67 206.84,-488.67 206.84,-488.67"/>
+<polygon fill="#009900" stroke="#009900" stroke-width="2" points="205.33,-492.17 215.33,-488.67 205.33,-485.17 205.33,-492.17"/>
+<text xml:space="preserve" text-anchor="middle" x="151.34" y="-449.4" font-family="Arial" font-size="8.00">создаёт</text>
+</g>
+<!-- terraform&#45;&gt;node3 -->
+<g id="edge4" class="edge">
+<title>terraform-&gt;node3</title>
+<path fill="none" stroke="#009900" stroke-width="2" d="M37.03,-246.2C37.03,-287.88 37.03,-386.67 37.03,-386.67 37.03,-386.67 206.96,-386.67 206.96,-386.67"/>
+<polygon fill="#009900" stroke="#009900" stroke-width="2" points="205.44,-390.17 215.44,-386.67 205.44,-383.17 205.44,-390.17"/>
+<text xml:space="preserve" text-anchor="middle" x="151.34" y="-303.4" font-family="Arial" font-size="8.00">создаёт</text>
+</g>
+<!-- ansible -->
+<g id="node7" class="node">
+<title>ansible</title>
+<polygon fill="#90ee90" stroke="black" points="82.79,-465 25.1,-465 25.1,-461 21.1,-461 21.1,-457 25.1,-457 25.1,-437 21.1,-437 21.1,-433 25.1,-433 25.1,-429 82.79,-429 82.79,-465"/>
+<polyline fill="none" stroke="black" points="25.1,-461 29.1,-461 29.1,-457 25.1,-457"/>
+<polyline fill="none" stroke="black" points="25.1,-437 29.1,-437 29.1,-433 25.1,-433"/>
+<text xml:space="preserve" text-anchor="middle" x="53.95" y="-450" font-family="Arial" font-size="10.00">Ansible</text>
+<text xml:space="preserve" text-anchor="middle" x="53.95" y="-438" font-family="Arial" font-size="10.00">core 2.17</text>
+</g>
+<!-- ansible&#45;&gt;iscsi -->
+<g id="edge5" class="edge">
+<title>ansible-&gt;iscsi</title>
+<path fill="none" stroke="#ff6600" stroke-width="2" d="M48.03,-428.71C48.03,-388.37 48.03,-295.33 48.03,-295.33 48.03,-295.33 206.9,-295.33 206.9,-295.33"/>
+<polygon fill="#ff6600" stroke="#ff6600" stroke-width="2" points="205.39,-298.83 215.39,-295.33 205.39,-291.83 205.39,-298.83"/>
+<text xml:space="preserve" text-anchor="middle" x="151.34" y="-376.4" font-family="Arial" font-size="8.00">настраивает</text>
+</g>
+<!-- ansible&#45;&gt;node1 -->
+<g id="edge6" class="edge">
+<title>ansible-&gt;node1</title>
+<path fill="none" stroke="#ff6600" stroke-width="2" d="M83.19,-447C104.27,-447 129.03,-447 129.03,-447 129.03,-447 129.03,-185.33 129.03,-185.33 129.03,-185.33 207.17,-185.33 207.17,-185.33"/>
+<polygon fill="#ff6600" stroke="#ff6600" stroke-width="2" points="205.66,-188.83 215.66,-185.33 205.66,-181.83 205.66,-188.83"/>
+<text xml:space="preserve" text-anchor="middle" x="151.34" y="-230.4" font-family="Arial" font-size="8.00">настраивает</text>
+</g>
+<!-- ansible&#45;&gt;node2 -->
+<g id="edge7" class="edge">
+<title>ansible-&gt;node2</title>
+<path fill="none" stroke="#ff6600" stroke-width="2" d="M54.03,-465.45C54.03,-481.87 54.03,-503.33 54.03,-503.33 54.03,-503.33 206.94,-503.33 206.94,-503.33"/>
+<polygon fill="#ff6600" stroke="#ff6600" stroke-width="2" points="205.42,-506.83 215.42,-503.33 205.42,-499.83 205.42,-506.83"/>
+<text xml:space="preserve" text-anchor="middle" x="151.34" y="-595.4" font-family="Arial" font-size="8.00">настраивает</text>
+</g>
+<!-- ansible&#45;&gt;node3 -->
+<g id="edge8" class="edge">
+<title>ansible-&gt;node3</title>
+<path fill="none" stroke="#ff6600" stroke-width="2" d="M71.03,-428.69C71.03,-415.98 71.03,-401.33 71.03,-401.33 71.03,-401.33 206.91,-401.33 206.91,-401.33"/>
+<polygon fill="#ff6600" stroke="#ff6600" stroke-width="2" points="205.4,-404.83 215.4,-401.33 205.4,-397.83 205.4,-404.83"/>
+<text xml:space="preserve" text-anchor="middle" x="151.34" y="-522.4" font-family="Arial" font-size="8.00">настраивает</text>
+</g>
+</g>
+</svg>
